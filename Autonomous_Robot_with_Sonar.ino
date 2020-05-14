@@ -17,7 +17,7 @@
 
 /*** SET UP ULTRASONIC SENSOR ***/
 #define echoPin 11 // assign pin D11 on Arduino as an Echo pin for the HC-SR04 sensor
-#define triggerPin 10
+#define triggerPin 10 // assign pin D10 on Arduino as a Trigger pin for the HC-SR04 sensor
 long duration;
 int distance;
 /*** END ULTRASONIC SENSOR SETUP ***/
@@ -73,10 +73,10 @@ void loop() {
 /***Measure Distance***/
 
 int getDistance() {
- // Clears the trigPin condition
+ // Clears triggerPin 
   digitalWrite(triggerPin, LOW);
   delayMicroseconds(2);
-  // Sets the trigPin HIGH (ACTIVE) for 10 microseconds
+  // Sets the triggerPin active for 10 microseconds
   digitalWrite(triggerPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(triggerPin, LOW);
@@ -118,7 +118,7 @@ void moveBackward() {
   digitalWrite(LEFT_REAR_MOTOR_BACKWARD, HIGH);
   digitalWrite(RIGHT_FRONT_MOTOR_FORWARD, LOW);
   digitalWrite(RIGHT_FRONT_MOTOR_BACKWARD, HIGH);
-  digitalWrite(RIGHT_REAR_MOTOR_FORWARD, LOW);
+  digitalWrite(RIGHT_REAR_MOTOR_FORWARD, LOW); 
   digitalWrite(RIGHT_REAR_MOTOR_BACKWARD, HIGH);
   delay(100);
   stopMoving();
